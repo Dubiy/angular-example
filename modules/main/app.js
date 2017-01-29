@@ -1,1 +1,3 @@
-angular.module('demo', []);
+var app = angular.module('cv', [
+    'ui.router'
+]);

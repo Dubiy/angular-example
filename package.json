@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.1",
+    "angular-ui-router": "^0.4.2",
     "browser-sync": "^2.9.11",
     "del": "^2.0.2",
     "gulp": "^3.9.0",

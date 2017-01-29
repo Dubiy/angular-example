@@ -1,6 +1,7 @@
-angular.module('demo')
-    .controller('MainCtrl', MainCtrl);
+app.controller('MainCtrl', MainCtrl);
 
 function MainCtrl($scope, $state) {
-    console.log('Main ctrl');
+    console.log('Main ctrl', $state.current.name);
+
+    $scope.var1 = 'var1112';
 }

@@ -17,7 +17,7 @@ gulp.task('default', ['clean'], function() {
 });
 
 gulp.task('clean', function () {
-    del(['css', 'js', 'images']);
+    del(['css/*', 'js', 'images']);
 });
 
 gulp.task('scss', function () {
@@ -45,14 +45,14 @@ gulp.task('images', function () {
 });
 
 gulp.task('scripts', function() {
-    return gulp.src(['modules/**/*.js', 'modules/**/js/*.js'])
+    return gulp.src(['modules/main/app.js', 'modules/**/*.js', 'modules/**/js/*.js'])
         .pipe(sourcemaps.init())
         .pipe(babel())
         .on('error', browserifyHandler)
         .pipe(ngAnnotate())
         .on('error', browserifyHandler)
         .pipe(concat('main.js'))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest('js/'))
         .pipe(browserSync.stream());
