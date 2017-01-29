@@ -1,3 +1,1 @@
-var app = angular.module('cv', [
-    'ui.router'
-]);
+var app = angular.module('cv', []);
