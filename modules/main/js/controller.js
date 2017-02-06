@@ -1,35 +1,47 @@
 app
     .controller('MainCtrl', MainCtrl)
-    .controller('ChildController', ChildController)
-    .controller('GrandChildController', GrandChildController);
+;
+
+var var0 = 'var0';
 
 function MainCtrl($scope) {
     console.log('Main ctrl');
 
-    $scope.ctrlName = 'MainCtrl';
+    $scope.var1 = 'var1';
 
-    $scope.user = {
-        name: 'John Doe',
-        age: 35
+    var var2 = 'var2';
+
+    this.var3 = 'var3';
+
+    //////////////
+
+    $scope.name = 'John';
+    $scope.greet = function () {
+        alert("Hello, I'm " + $scope.name);
     };
-}
+    // $scope.alert = function (text) {
+    //     alert(text);
+    // }
 
-function ChildController($scope) {
-    console.log('Child ctrl');
 
-    $scope.user = {
-        name: 'Alex Fisher',
-        age: 42
+
+    ////////one time binding
+
+    // $scope.username = '';
+
+    var counter = 0;
+    var names = ['John', 'Gary', 'Bobby', 'Adolf', 'Timmy'];
+    $scope.clickMe = function(clickEvent) {
+        console.log(event, $scope.username = names[counter++ % names.length]);
     };
-}
 
-function GrandChildController($scope) {
-    console.log('GrandChild ctrl');
+    $scope.now = new Date();
 
-    $scope.ctrlName = 'GrandChildController';
 
-    $scope.user = {
-        name: 'Timmy',
-        age: 15
-    };
+    //ngInit
+    $scope.userData = undefined;
+    $scope.showUserData = function () {
+        console.log($scope.userData);
+    }
+
 }

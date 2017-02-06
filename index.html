@@ -3,29 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <title>Angular demo</title>
+    <link href="css/style.css" rel="stylesheet">
     <script type="application/javascript" src="node_modules/angular/angular.js"></script>
     <script type="application/javascript" src="js/main.js"></script>
+
 </head>
 <body ng-controller="MainCtrl as main">
-    <p>Hello: {{ user }}</p>
-    <p>Scope var: {{ ctrlName }}</p>
+    <h1>Expressions</h1>
 
+    <p>Simple: 1 + 2 = {{ 1 + 2 }}</p>
 
-    <div ng-controller="ChildController as child">
-        <p>Hello: {{ user }}</p>
-        <p>Scope var: {{ ctrlName }}</p>
+    <h3>Context</h3>
+    <ul>
+        <li>var0: {{ var0 }}</li>
+        <li>var1: {{ var1 }}</li>
+        <li>var2: {{ var2 }}</li>
+        <li>main.var3: {{ main.var3 }}</li>
 
-        <div ng-controller="GrandChildController as grandChild">
-            <p>Hello: {{ user }}</p>
-            <p>Scope var: {{ ctrlName }}</p>
-        </div>
+    </ul>
+
+    <div>
+        Name: <input ng-model="name" type="text"/>
+        <button ng-click="greet()">Greet</button>
+        <button ng-click="alert('Should not see me')">Won't greet</button>
     </div>
 
-    <style>
-        [ng-controller] {
-            border: 1px solid gray;
-            padding: 10px;
-        }
-    </style>
+    <h3>Forgiving</h3>
+    <ul>
+        <li>a = {{ a }}</li>
+        <li>a.b = {{ a.b }}</li>
+        <li>a.b.c = {{ a.b.c }}</li>
+    </ul>
+    <p><button ng-click="a.b.c = 'Hello!!!!'">Set value</button></p>
+
+    <ul>
+        <li>a = {{ a }}</li>
+        <li>b = {{ b }}</li>
+        <li>c = {{ c }}</li>
+        <li>a[b][c] = {{ a[b][c] }}</li>
+    </ul>
+    <p><button ng-click="a = [0,1,2,[0,10,20,30,40]]; b = 3; c = 2;">Set value2</button></p>
+
+    <h3>No Control Flow Statements</h3>
+    <p>no loops, conditionals, exceptions. only ternary operator</p>
+    <p>b ? c : a = {{ b ? c : a }}</p>
+
+    <h3>One time binding</h3>
+    <div>
+        <button ng-click="clickMe($event)">Click Me</button>
+        <p id="one-time-binding-example">One time binding: {{::username}}</p>
+        <p id="normal-binding-example">Normal binding: {{username}}</p>
+    </div>
+
+    <h3>Filters</h3>
+
+    <p>date: {{ now }}</p>
+    <p>date+filter: {{ now|date }}</p>
+    <p>date+filter+format: {{ now|date:'yyyy-MM-dd HH:mm' }}</p>
+
+
+    <h3>Filter chaining</h3>
+    <p ng-non-bindable>{{ expression | filter1 | filter2 | ... }}</p>
+    <p>{{ a | json | uppercase }}</p>
+
+    <h3>Custom filters</h3>
+    <p>reverse: {{ now|date:'yyyy-MM-dd HH:mm'|reverse }}</p>
+    <p>date+filter+format: {{ 'lorem ipsum'|reverse:true }}</p>
+
+    <h3>ngBind</h3>
+    <p ng-bind="'lorem ipsum'|reverse:true"></p>
+
+    <h3>ngCloak</h3>
+    <p>no ngCloak: <span>{{ now|date:'yyyy-MM-dd HH:mm'|reverse }}</span></p>
+    <p>with no ngCloak: <span ng-cloak>{{ now|date:'yyyy-MM-dd HH:mm'|reverse }}</span></p>
+
+
+    <h3 ng-init="userData = {firstname: 'Jonny', lastname: 'Mnemonic', age: 25, }">ngInit</h3>
+    <p>userData = {{ userData }}</p>
+    <p><button ng-click="showUserData()">Show in console</button></p>
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
