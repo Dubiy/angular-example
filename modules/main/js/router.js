@@ -4,11 +4,7 @@ app.config(($stateProvider) => {
             .state({
                 name: 'main',
                 url: '',
-                template: `<header>
-                               <a ui-sref="main.about" ui-sref-active="active">About</a>
-                               <a ui-sref="main.skills" ui-sref-active="active">Skills</a>
-                           </header>
-                           v1: {{ var1 }}
+                template: `<header></header>
                            <ui-view></ui-view>`,
                 controller: 'MainCtrl as Main'
             })
