@@ -257,6 +257,23 @@ textarea {
     text-transform: uppercase;
 }
 
-[ng-cloak] {
-    color: gray;
+body {
+    position: relative;
 }
+
+.spinner {
+    display: none;
+}
+
+[ng-cloak] {
+    display: none;
+
+    &.spinner {
+        display: block !important;
+        position: absolute;
+        left:50%;
+        top: 50%;
+    }
+
+}
+

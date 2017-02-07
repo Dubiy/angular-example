@@ -4,7 +4,7 @@ app
 
 var var0 = 'var0';
 
-function MainCtrl($scope) {
+function MainCtrl($scope, $rootScope) {
     console.log('Main ctrl');
 
     $scope.var1 = 'var1';
@@ -13,21 +13,24 @@ function MainCtrl($scope) {
 
     this.var3 = 'var3';
 
+    $scope.getVar2 = function () {
+        return var2;
+    };
     //////////////
 
     $scope.name = 'John';
     $scope.greet = function () {
         alert("Hello, I'm " + $scope.name);
     };
-    // $scope.alert = function (text) {
-    //     alert(text);
-    // }
+    $scope.alert = function (text) {
+        alert(text);
+    };
 
 
 
     ////////one time binding
 
-    // $scope.username = '';
+    $scope.username = '';
 
     var counter = 0;
     var names = ['John', 'Gary', 'Bobby', 'Adolf', 'Timmy'];
@@ -41,7 +44,7 @@ function MainCtrl($scope) {
     //ngInit
     $scope.userData = undefined;
     $scope.showUserData = function () {
-        console.log($scope.userData);
+        console.log($rootScope.userData);
     }
 
 }

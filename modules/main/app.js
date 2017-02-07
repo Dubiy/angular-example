@@ -13,4 +13,4 @@ app.filter('reverse', function() {
         }
         return out;
     };
-})
+});

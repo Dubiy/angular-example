@@ -4,26 +4,32 @@
     <meta charset="UTF-8">
     <title>Angular demo</title>
     <link href="css/style.css" rel="stylesheet">
-    <script type="application/javascript" src="node_modules/angular/angular.js"></script>
-    <script type="application/javascript" src="js/main.js"></script>
+
 
 </head>
 <body ng-controller="MainCtrl as main">
+
+<div ng-cloak class="spinner">xxxxxxxxxxxxx</div>
+
+<div ng-cloak>
+
     <h1>Expressions</h1>
 
-    <p>Simple: 1 + 2 = {{ 1 + 2 }}</p>
+    <p ng-cloak>Simple: 1 + 2 = {{ 1 + 2 }}</p>
+    <p>Simple: 1 + 2 = <span ng-bind="1+2">...calculating...</span></p>
 
     <h3>Context</h3>
     <ul>
         <li>var0: {{ var0 }}</li>
         <li>var1: {{ var1 }}</li>
-        <li>var2: {{ var2 }}</li>
+        <li>var2: {{ var2 }} /// {{ getVar2()}}</li>
         <li>main.var3: {{ main.var3 }}</li>
 
     </ul>
 
     <div>
         Name: <input ng-model="name" type="text"/>
+        <h2>hello, {{name}}</h2>
         <button ng-click="greet()">Greet</button>
         <button ng-click="alert('Should not see me')">Won't greet</button>
     </div>
@@ -32,12 +38,12 @@
     <ul>
         <li>a = {{ a }}</li>
         <li>a.b = {{ a.b }}</li>
-        <li>a.b.c = {{ a.b.c }}</li>
+        <li>a.b.c = {{ a.b.c|json }}</li>
     </ul>
     <p><button ng-click="a.b.c = 'Hello!!!!'">Set value</button></p>
 
     <ul>
-        <li>a = {{ a }}</li>
+        <li>a = {{ a|json }}</li>
         <li>b = {{ b }}</li>
         <li>c = {{ c }}</li>
         <li>a[b][c] = {{ a[b][c] }}</li>
@@ -63,7 +69,7 @@
 
 
     <h3>Filter chaining</h3>
-    <p ng-non-bindable>{{ expression | filter1 | filter2 | ... }}</p>
+    <p ng-non-bindable>{{ expression | filter1:true | filter2 | ... }}</p>
     <p>{{ a | json | uppercase }}</p>
 
     <h3>Custom filters</h3>
@@ -78,7 +84,7 @@
     <p>with no ngCloak: <span ng-cloak>{{ now|date:'yyyy-MM-dd HH:mm'|reverse }}</span></p>
 
 
-    <h3 ng-init="userData = {firstname: 'Jonny', lastname: 'Mnemonic', age: 25, }">ngInit</h3>
+    <h3 ng-init="$root.userData = {firstname: 'Jonny', lastname: 'Mnemonic', age: 25, }">ngInit</h3>
     <p>userData = {{ userData }}</p>
     <p><button ng-click="showUserData()">Show in console</button></p>
 
@@ -89,6 +95,10 @@
 
 
 
+    <script type="application/javascript" src="node_modules/angular/angular.js"></script>
+    <script type="application/javascript" src="js/main.js"></script>
+
+</div>
 
 
 
