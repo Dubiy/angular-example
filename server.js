@@ -1,7 +1,5 @@
 'use strict';
 
-console.log(process.env);
-
 let express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
