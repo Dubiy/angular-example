@@ -4,7 +4,7 @@ let express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     http = require('http').Server(app),
-    port = 3005;
+    port = process.env.PORT || 3005;
 
 app.use(express.static(__dirname + '/static/'));
 
