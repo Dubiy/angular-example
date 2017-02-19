@@ -4,7 +4,7 @@
   "description": "demo for GeekHub",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "gulp"
   },
   "author": "Igor Dubiy",
   "license": "ISC",
