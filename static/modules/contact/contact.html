@@ -1,0 +1,31 @@
+<form name="form" ng-submit="sendMessage(form)">
+    <ul class="errors" ng-show="form.$error && form.$submitted">
+        <li ng-show="form.name.$error.required">Name is required</li>
+        <li ng-show="form.email.$error.required">Email is required</li>
+        <li ng-show="form.email.$error.email">Wrong email</li>
+        <li ng-show="form.message.$error.required">Message is required</li>
+        <li ng-show="form.message.$error.minlength">Message is too short</li>
+    </ul>
+
+    <div class="row" style="display: block">
+        <div class="form-group">
+            <div class="col-sm-6">
+                <input type="text" required class="form-control" name="name" ng-model="formData.name" placeholder="Name">
+            </div>
+            <div class="col-sm-6">
+                <input type="email" required class="form-control" name="email" ng-model="formData.email" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <textarea name="message" required ng-minlength="20" class="form-control" ng-model="formData.message" placeholder="Message"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input type="submit" class="btn btn-success" value="Send Message">
+            </div>
+        </div>
+    </div>
+
+</form>

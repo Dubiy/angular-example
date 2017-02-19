@@ -13,11 +13,11 @@ var gulp         = require('gulp'),
     util         = require('gulp-util');
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('scss', 'images', 'scripts');
+    gulp.start('scss', 'images', 'scripts', 'js', 'css');
 });
 
 gulp.task('clean', function () {
-    del(['css/*', 'js', 'images']);
+    del(['static/css/*', 'static/js/*', 'static/images/*']);
 });
 
 gulp.task('scss', function () {
@@ -30,8 +30,17 @@ gulp.task('scss', function () {
             keepSpecialComments: 0
         }))
         .pipe(sourcemaps.write(''))
-        .pipe(gulp.dest('css'))
+        .pipe(gulp.dest('static/css'))
         .pipe(browserSync.stream());
+});
+
+
+gulp.task('css', function () {
+    return gulp.src([
+        'node_modules/bootstrap/dist/css/bootstrap.min.css',
+        'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
+    ])
+        .pipe(gulp.dest('static/css/'))
 });
 
 gulp.task('images', function () {
@@ -40,12 +49,12 @@ gulp.task('images', function () {
             progressive: true,
             interlaced: true
         }))
-        .pipe(gulp.dest('images/'))
+        .pipe(gulp.dest('static/images/'))
         .pipe(browserSync.stream());
 });
 
 gulp.task('scripts', function() {
-    return gulp.src(['modules/main/app.js', 'modules/**/*.js', 'modules/**/js/*.js'])
+    return gulp.src(['static/modules/main/app.js', 'static/modules/**/*.js', 'static/modules/**/js/*.js'])
         .pipe(sourcemaps.init())
         .pipe(babel())
         .on('error', browserifyHandler)
@@ -54,28 +63,25 @@ gulp.task('scripts', function() {
         .pipe(concat('main.js'))
         // .pipe(uglify())
         .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest('js/'))
+        .pipe(gulp.dest('static/js/'))
         .pipe(browserSync.stream());
 });
 
-gulp.task('serve', function () {
-    browserSync.init({
-        scriptPath: function (path, port, options) {
-            return "/browser-sync/browser-sync-client.js";
-        },
-        socket: {
-            domain: 'localhost:3000'
-        },
-        server: {
-            baseDir: "./"
-        },
-        notify: false
-    });
 
+gulp.task('js', function () {
+    return gulp.src([
+        'node_modules/angular/angular.min.js',
+        'node_modules/angular-ui-router/release/angular-ui-router.min.js'
+    ])
+        .pipe(concat('vendor.js'))
+        .pipe(gulp.dest('static/js/'));
+});
+
+gulp.task('watch', function () {
     gulp.watch('web-src/scss/*.scss', ['scss']);
     gulp.watch('web-src/images/**', ['images']);
-    gulp.watch(['modules/**/*.js', 'modules/**/js/*.js'], ['scripts']);
-    gulp.watch(['index.html', 'modules/**/**/*.html']).on('change', browserSync.reload);
+    gulp.watch(['static/modules/**/*.js', 'static/modules/**/js/*.js'], ['scripts']);
+    gulp.watch(['static/index.html', 'static/modules/**/**/*.html']).on('change', browserSync.reload);
 });
 
 

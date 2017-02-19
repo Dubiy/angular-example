@@ -1,0 +1,20 @@
+'use strict';
+
+let express = require('express'),
+    app = express(),
+    bodyParser = require('body-parser'),
+    http = require('http').Server(app),
+    port = 3005;
+
+app.use(express.static(__dirname + '/static/'));
+
+app.use(bodyParser.json());
+app.post('/send-email', (req, res, next) => {
+    console.log(req.body);
+    res.json(req.body);
+
+});
+
+http.listen(port, function () {
+    console.log(`Server running at localhost:${port}`);
+});

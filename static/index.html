@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Angular demo</title>
+    <script type="application/javascript" src="/js/vendor.js"></script>
+    <script type="application/javascript" src="/js/main.js"></script>
+    <!--<link href="/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<link href="/css/bootstrap-theme.min.css" rel="stylesheet">-->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<section id="body" class="width">
+    <ui-view></ui-view>
+    <div class="clear"></div>
+</section>
+<div id="ng-spinner" class="render" ng-cloak ng-if="$root.spinner"></div>
+
+</body>
+</html>
+

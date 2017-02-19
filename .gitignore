@@ -1,4 +1,4 @@
 /node_modules
-/js
-/images
-/css
+/static/js
+/static/images
+/static/css

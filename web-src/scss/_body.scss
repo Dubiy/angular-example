@@ -1,0 +1,16 @@
+body {
+
+
+  article {
+    //left: 200px;
+    display: block;
+    left: 0;
+    top: 0;
+    width: calc(100% - 200px);
+    margin-left: 200px;
+    height: 100%;
+
+    //border: 1px solid;
+
+  }
+}

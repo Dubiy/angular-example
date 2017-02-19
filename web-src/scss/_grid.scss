@@ -1,0 +1,19 @@
+.row {
+  margin: 0 0 0 -20px;
+
+  .col-sm-6 {
+    box-sizing: border-box;
+    display: block;
+    padding: 15px;
+    width: 50%;
+    float: left;
+  }
+
+  .col-sm-12 {
+    box-sizing: border-box;
+    display: block;
+    padding: 15px;
+    width: 100%;
+    float: left;
+  }
+}

@@ -1,0 +1,25 @@
+
+
+body {
+  & > ui-view {
+    height: 100%;
+    display: block;
+  }
+
+  header {
+    //position: absolute;
+    float: left;
+    display: block;
+    width: 200px;
+    //height: 200px;
+    height: 100%;
+    left: 0;
+    top: 0;
+
+    //border: 1px solid red;
+
+    a {
+      display: block;
+    }
+  }
+}
