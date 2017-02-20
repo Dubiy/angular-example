@@ -23,6 +23,7 @@ function ContactCtrl($scope, $state, $rootScope, $http) {
                 form: $scope.formData
             }
         }).then(function successCallback(response) {
+    	    alert('Thank you, message sent successfully');
             $rootScope.spinner = false;
             console.log(response);
         }, function errorCallback(response) {

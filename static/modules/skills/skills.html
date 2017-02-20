@@ -1,1 +1,10 @@
-skills
+<h1>My skills</h1>
+
+<div class="skills">
+    <div class="skill" ng-repeat="skill in skills track by $index">
+        <span class="name">{{skill.name}}</span>
+        <span class="rating">
+	    <i class="star" ng-class="{filled: $index < skill.score}" ng-repeat="i in [1,2,3,4,5] track by $index">
+        </span>
+    </div>
+</div>

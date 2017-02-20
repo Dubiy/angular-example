@@ -1,0 +1,23 @@
+.skill {
+  line-height: 30px;
+  
+  .name {
+    width: 150px;
+    display: inline-block;
+  }
+  
+
+  .rating {
+    .star {
+      background: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 51 48'><path fill='none' stroke='#000' d='m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z'/></svg>") no-repeat;
+      height: 16px;
+      width: 16px;
+      display: inline-block;
+
+        &.filled {
+          background: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 51 48'><path fill='#000' stroke='#000' d='m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z'/></svg>") no-repeat;
+        }	
+    }
+  }
+
+}
