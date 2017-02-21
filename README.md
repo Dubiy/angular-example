@@ -1,17 +1,18 @@
-# GH-Portfolio
+# Directives
 
-## Run
+Show example uMade gEditor
 
-    node server.js
+## Creation
 
-## Heroku
+    angular.module('moduleName', [])
+        .directive('directiveName', function () {
+            /*factory-function */
+        })
+        
+    //factory function doesn't use "new"
 
-    heroku login
-    heroku create gh-portfolio
-    heroku config:set MONGOLAB_URI=mongodb://_username_:_password_@ds135029.mlab.com:35029/todos
-    git push heroku master
-    heroku ps:scale web=1
-    heroku open
-    
-    heroku logs --tail
-    heroku run bash
+Usefull link about "Factory constructor pattern": https://javascript.info/tutorial/factory-constructor-pattern
+
+### Linking-function:
+
+just return linking function

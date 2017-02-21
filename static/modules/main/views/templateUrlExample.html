@@ -1,0 +1,5 @@
+<div class="hello" ng-mouseenter="showList = true;" ng-mouseleave="showList = false;">Poke me</div>
+
+<ul ng-show="showList">
+    <li ng-repeat="item in ['Hello', 'Lorem ipsum', 123456, 'This is directive!']">{{ item }}</li>
+</ul>

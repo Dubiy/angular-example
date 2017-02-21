@@ -1,0 +1,15 @@
+<script type="text/ng-template" id="image">
+    <div class="image">
+        Image here: {{ hello }}
+        <img ng-src="{{ content.data }}" />
+    </div>
+</script>
+
+<script type="text/ng-template" id="video">
+    <div class="player">
+        Youtube video
+        <div class="content">
+            <iframe width="100%" height="100%" ng-src="{{ content.data | trusted }}" frameborder="0" allowfullscreen ></iframe>
+        </div>
+    </div>
+</script>
